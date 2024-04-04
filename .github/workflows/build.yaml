@@ -30,10 +30,9 @@ jobs:
       fail-fast: false
       matrix:
         config:
-          - {
-            name: "Build YAMA Scanner",
-            pe: "YAMA.exe",
-          }
+          - name: "Build YAMA Scanner"
+            pe: "YAMA.exe"
+          
     steps:
     - name: Check out repository
       uses: actions/checkout@v3
@@ -104,10 +103,10 @@ jobs:
     
     - name: Check if Yama Scanner exists
       run: |
-        .\build\Yama.exe -V
+        .\build\YAMA.exe -V
 
     - name: Archive build results
       uses: actions/upload-artifact@v3
       with:
         name: ${{ matrix.config.pe }}
-        path: .\build\Yama.exe
+        path: .\build\YAMA.exe
